@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <conio.h>
 /*
-номер задачи - 1e
-уровень сложности - A
+РќРѕРјРµСЂ Р·Р°РґР°РЅРёСЏ - 1e
+РЈСЂРѕРІРІРµРЅСЊ СЃР»РѕР¶РЅРѕСЃС‚Рё - A
 */
 int main()
 {
@@ -59,13 +59,13 @@ int main()
 			cj[j] += arr[i][j];
 
 		}
-		printf("  |%d", ci[i]);//строки
+		printf("  |%d", ci[i]);
 		printf("\n");
 	}
 	printf("\n");
 	for (i = 0; i < n2; i++)
 	{
-		printf("     %d   ", cj[i]);//столбцы
+		printf("     %d   ", cj[i]);
 
 	}
 
@@ -76,14 +76,14 @@ int main()
 	max = ci[0];
 	for (i = 0; i < n; i++)
 	{
-		//ci[i]);//строчки
+		
 		if (ci[i] >= max)
 			max = ci[i];
 	}
 	min = cj[0];
 	for (i = 0; i < n2; i++)
 	{
-		//cj[i]);//столбцы
+		
 		if (cj[i] <= min)
 			min = cj[i];
 	}
