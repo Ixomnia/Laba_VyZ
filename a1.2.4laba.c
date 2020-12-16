@@ -7,22 +7,18 @@ int main()
     int i, n, a;
     char arr[N];
 
-    //for (i = 0; i < N; i++) arr[i]=0;
-
-    //setlocale(0, "");
-
-    //printf("¬ведите размер массива\n");
+    printf("Size text\n");
     scanf("%d", &n);
 
     fflush(stdin);
 
-    //printf("¬ведите элементы\n");
+    printf("Input text\n");
     for (i = 0; i < n; i++)
     {
         scanf("%c", &arr[i]);
     }
 
-    //printf("\nЁлементы после сортировки \n");
+    printf("Sort text\n");
     for (i = 0; i < n; i+=5)
         if (i+4 < n)
         {
@@ -31,6 +27,7 @@ int main()
             {
                 printf("%c", arr[a]);
             }
+            printf(" ");
         }
         else
         {
@@ -39,7 +36,16 @@ int main()
             {
                 printf("%c", arr[n]);
             }
+            printf(" ");
         }
 
     return 0;
 }
+/*
+*   Size text
+*   17
+*   Input text
+*   ABCDEFGHIJKLNMOPQ
+*   Sort text
+*   EDCBA JIHGF OMNLK QP
+*/
