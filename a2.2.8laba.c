@@ -14,14 +14,14 @@ int main()
 {
 	int arr[N][M],n,m,x,del;
 	int a = scanf("%d", &n);
-	if(a==0 || n < 1){
+	if(a==0 || n < 1 || n > 20){
 		printf("Error");
-		return -1;
+		return 0;
 	}
 	a = scanf("%d", &m);
-	if(a==0 || m < 1){
+	if(a==0 || m < 1 || m>20){
 		printf("Error");
-		return -1;
+		return 0;
 	} 
 		
 

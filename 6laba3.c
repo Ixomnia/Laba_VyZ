@@ -60,14 +60,28 @@ int main()
     
     srand(time(NULL));
     printf("Input size array: ");
-    scanf("%d%d", &m, &n);
+	int a = scanf("%d", &m);
+	if(a==0 || m < 1 ||  m> 100){
+		printf("Error, neverni razmer");
+		return 0;
+	}
+	a = scanf("%d", &n);
+	if(a==0 || n < 1 || n>100){
+		printf("Error, neverni razmer");
+		return 0;
+	} 
     printf("Input numbers");
     for(int i = 0; i<m; i++)
     {
         for(int j = 0; j<n; j++)
         {
             //arr[i][j] = rand();
-            scanf("%d", &arr[i][j]);
+            a = scanf("%d", &arr[i][j]);
+            if(a == 0)
+            {
+                printf("Error, nevernoe znachenie");
+                return 0;
+            }
         }
     }
    /*printf("Beginning array\n");
@@ -79,7 +93,43 @@ int main()
         }
         printf("\n");
     }*/
-    int count=shekerSort(arr, m, n);
+    //int count=shekerSort(arr, m, n);
+    int count=0, sravn=0;
+    for(int j = 0; j<m; j++)
+    {
+        int left = 0, right = n - 1;
+        int flag = 1;
+        while ((left < right) && flag > 0)
+        {
+            flag = 0;
+            for (int i = left; i<right; i++)  
+            {
+                if (arr[j][i]<arr[j][i + 1]) 
+                {            
+                    int t = arr[j][i];
+                    arr[j][i] = arr[j][i + 1];
+                    arr[j][i + 1] = t;
+                    flag = 1;
+                    count++;      
+                }
+                sravn++;
+            }
+            right--; 
+            for (int i = right; i>left; i--) 
+            {
+                if (arr[j][i - 1]<arr[j][i]) 
+                {            
+                    int t = arr[j][i];
+                    arr[j][i] = arr[j][i - 1];
+                    arr[j][i - 1] = t;
+                    flag = 1;
+                    count++;
+                }
+                sravn++;
+            }
+            left++;
+        }
+    }
     /*printf("Sorting strings\n");
     for(int i = 0; i<m; i++)
     {
@@ -89,7 +139,7 @@ int main()
         }
         printf("\n");
     }*/
-    int left = 0, right = m - 1, sravn=0, count2=0; 
+    int left = 0, right = m - 1; 
     int flag = 1; 
     while ((left < right) && flag > 0)
     {
@@ -98,34 +148,32 @@ int main()
         {
             if (arr[i][0] < arr[i+1][0]) 
             {
-                sravn++;
-                
                 for(int j = 0; j<n; j++)
                 {
                     int t = arr[i][j];
                     arr[i][j] = arr[i+1][j];
                     arr[i+1][j] = t;
-                    count2++;
+                    count++;
                 }                         
                 flag = 1;
             }
+            sravn++;
         }
         right--; 
         for (int i = right; i>left; i--) 
         {
             if (arr[i-1][0]<arr[i][0]) 
-            {   
-                sravn++;
-                
+            { 
                 for(int j = 0; j<n; j++)
                 {
                     int t = arr[i][j];
                     arr[i][j] = arr[i-1][j];
                     arr[i-1][j] = t;
-                    count2++;
+                    count++;
                 }
                 flag = 1;
             }
+            sravn++;
         } 
         left++;
     }
@@ -138,8 +186,8 @@ int main()
         }
         printf("\n");
     }*/
-    printf("\nPermutations: %d\n",count2+count);
-    printf("\nComparisons: %d\n",sravn+count);
+    printf("\nPermutations: %d\n",count);
+    printf("\nComparisons: %d\n",sravn);
     
     return 0;
 }
