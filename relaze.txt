@@ -1,0 +1,13 @@
+// здесь мои часто используемые методы 
+
+*проверка на дурака в массиве(проверяется не вышло ли за пределы и не вводили лись ли символы )
+int a = scanf("%d", &m);
+	if(a==0 || m < 1 ||  m> 100){
+		printf("Error, neverni razmer");
+		return 0;
+	}
+	a = scanf("%d", &n);
+	if(a==0 || n < 1 || n>100){
+		printf("Error, neverni razmer");
+		return 0;
+	}
