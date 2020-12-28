@@ -6,7 +6,7 @@ typedef struct sNode{
     int value;
 } tNode;
 
-tNode *create_list(){
+tNode *create_list(void){
     int z;
     int t = 1;
     tNode *p_begin = NULL;
